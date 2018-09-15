@@ -1,4 +1,4 @@
-// Place all the styles related to the Store controller here.
+// Place all the styles related to the Searches controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
@@ -21,6 +21,7 @@
         content: " ";
         display: block;
       }
+
       img {
         float: left;
         padding: 1em;
@@ -28,6 +29,7 @@
         margin-bottom: 1em;
         box-shadow: 0.176em 0.176em 0.354em 0px rgba(0,0,0,0.75);
       }
+
       .price {
         font-size: 1.414em;
       }
