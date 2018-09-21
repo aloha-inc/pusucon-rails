@@ -27,7 +27,7 @@ class LineItemsController < ApplicationController
   # POST /line_items.json
   def create
     school = School.find(params[:school_id])
-    @line_item = @cart.line_items.build(school: school)
+    @line_item = @cart.add_school(school)
 
     respond_to do |format|
       if @line_item.save

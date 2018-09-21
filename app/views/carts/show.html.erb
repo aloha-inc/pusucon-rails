@@ -5,6 +5,6 @@
 <h2>Your Pragmatic Cart</h2>
 <ul>    
   <% @cart.line_items.each do |item| %>
-    <li><%= item.school.name %></li>
+    <li><%= item.quantity %> &times; <%= item.school.name %></li>
   <% end %>
 </ul>
