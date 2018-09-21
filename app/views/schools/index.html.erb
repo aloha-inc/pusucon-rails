@@ -1,0 +1,46 @@
+<% if notice %>
+  <aside id="notice"><%= notice %></aside>
+<% end %>
+
+<h1>Schools</h1>
+
+<table>
+  <tfoot>
+    <tr>
+      <td colspan="3">
+        <%= link_to 'New school', new_school_path %>
+      </td>
+    </tr>
+  </tfoot>
+  <tbody>
+    <% @schools.each do |school| %>
+      <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+
+        <td class="image">
+          <%= image_tag(school.image_url, class: 'list_image') %>
+        </td>
+
+        <td class="description">
+          <h1><%= school.name %></h1>
+          <p>
+            <%= truncate(strip_tags(school.description),
+                         length: 80) %>
+          </p>
+        </td>
+
+        <td class="actions">
+          <ul>
+            <li><%= link_to 'Show', school %></li>
+            <li><%= link_to 'Edit', edit_school_path(school) %></li>
+            <li>
+              <%= link_to 'Destroy',
+                           school, 
+                          method: :delete,
+                          data: { confirm: 'Are you sure?' } %>
+            </li>
+          </ul>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

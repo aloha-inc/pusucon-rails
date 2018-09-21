@@ -1,0 +1,25 @@
+<% if notice %>
+	<aside id=“notice”><%= notice %></aside>
+<% end %>
+
+<h1>Your Pragmatic Catalog</h1>
+
+	<ul class=“catalog”>
+		<% cache @schools do %>
+		  <% @schools.each do |school| %>
+			  <% cache school do %>
+					<li>
+						<%= image_tag(school.image_url) %>
+					  <h2><%= school.name %></h2>
+					  <p>
+						  <%= sanitize(school.description) %>
+					  </p>
+					  <div class=“price”>
+						  <%= number_to_currency(school.price) %>
+						  <%= button_to 'Add to Cart', line_items_path(school_id: school) %>
+					  </div>
+					</li>
+		    <% end %>
+		  <% end %>
+		<% end %>
+	</ul>
