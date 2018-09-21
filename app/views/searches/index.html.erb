@@ -16,7 +16,7 @@
 					  </p>
 					  <div class=“price”>
 						  <%= number_to_currency(school.price) %>
-						  <%= button_to 'Add to Cart', line_items_path(school_id: school) %>
+						  <%= button_to 'Add to Cart', line_items_path(school_id: school), remote: true %>
 					  </div>
 					</li>
 		    <% end %>
