@@ -44,6 +44,10 @@ class SchoolsController < ApplicationController
       if @school.update(school_params)
         format.html { redirect_to @school, notice: 'School was successfully updated.' }
         format.json { render :show, status: :ok, location: @school }
+      
+      @schools = School.all
+        ActionCable.server.broadcast 'schools',
+          html: render_to_string('searches/index', layout: false)
       else
         format.html { render :edit }
         format.json { render json: @school.errors, status: :unprocessable_entity }
