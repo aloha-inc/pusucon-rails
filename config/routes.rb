@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :orders
   resources :line_items
   resources :carts
   root 'searches#index', as: 'searches_index'
