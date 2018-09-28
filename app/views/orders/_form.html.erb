@@ -13,35 +13,36 @@
 
   <div class="field">
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, id: :order_name, size: 40 %>
   </div>
 
   <div class="field">
     <%= form.label :name_kana %>
-    <%= form.text_field :name_kana %>
+    <%= form.text_field :name_kana, id: :order_name_kana, size: 40 %>
   </div>
 
   <div class="field">
     <%= form.label :email %>
-    <%= form.text_field :email %>
+    <%= form.text_field :email, id: :order_email, size: 40 %>
   </div>
 
   <div class="field">
     <%= form.label :tel %>
-    <%= form.text_field :tel %>
+    <%= form.text_field :tel, id: :order_tel, size: 40 %>
   </div>
 
   <div class="field">
     <%= form.label :schedule %>
-    <%= form.number_field :schedule %>
+    <%= form.select :schedule, Order.schedules.keys, id: :order_schedule,
+                  prompt: 'Select a start schedule' %>
   </div>
 
   <div class="field">
     <%= form.label :message %>
-    <%= form.text_area :message %>
+    <%= form.text_area :message, id: :order_message, rows: 8, cols: 40 %> %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Place Order' %>
   </div>
 <% end %>

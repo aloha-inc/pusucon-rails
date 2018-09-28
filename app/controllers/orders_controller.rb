@@ -1,4 +1,7 @@
 class OrdersController < ApplicationController
+  include CurrentCart
+  before_action :set_cart, only: [:new, :create]
+  before_action :ensure_cart_isnt_empty, only: :new  
   before_action :set_order, only: [:show, :edit, :update, :destroy]
 
   # GET /orders
@@ -71,4 +74,12 @@ class OrdersController < ApplicationController
     def order_params
       params.require(:order).permit(:name, :name_kana, :email, :tel, :schedule, :message)
     end
+
+　private
+     def ensure_cart_isnt_empty
+       if @cart.line_items.empty?
+         redirect_to searches_index_url, notice: 'Your cart is empty'
+       end
+     end
+
 end
