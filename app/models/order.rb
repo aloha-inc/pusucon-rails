@@ -10,4 +10,10 @@ class Order < ApplicationRecord
   # ...
   validates :name, :name_kana, :email, :tel, presence: true
   validates :schedule, inclusion: schedule.keys
+  def add_line_items_from_cart(cart)
+    cart.line_items.each do |item|
+      item.cart_id = nil
+      line_items << item
+    end
+  end
 end
